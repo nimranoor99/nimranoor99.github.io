@@ -75,13 +75,13 @@ section{padding:6rem 3.5rem;position:relative;}
 .container{max-width:1160px;margin:0 auto;}
 .eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;}
 .eyebrow::before{content:'';width:20px;height:1px;background:var(--accent);display:block;}
-.sec-title{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;letter-spacing:-.025em;line-height:1.3;overflow:visible;margin-bottom:1.2rem;padding-bottom:4px;}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;letter-spacing:-.025em;line-height:1.4;overflow:visible;margin-bottom:1.2rem;padding-bottom:8px;}
 .sec-sub{color:var(--muted2);max-width:520px;margin-bottom:3.5rem;font-weight:300;font-size:.95rem;line-height:1.8;}
  
 /* ABOUT */
 #about{background:var(--surface);}
 .about-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:5rem;align-items:start;}
-.about-text p{text-align: justify;text-justify: inter-word;color:#aaa;margin-bottom:1.3rem;line-height:1.95;font-weight:300;font-size:.97rem;}
+.about-text p{text-align:justify;text-justify:inter-character;hyphens:auto;color:#aaa;margin-bottom:1.3rem;line-height:1.95;font-weight:300;font-size:.97rem;}
 .about-text p strong{color:var(--white);font-weight:500;}
 .highlight-box{border-left:2px solid var(--accent);padding:1rem 1.5rem;background:rgba(0,229,160,.04);border-radius:0 8px 8px 0;margin:1.5rem 0;font-size:.95rem;color:var(--muted2);font-style:italic;line-height:1.8;}
 .about-right{display:flex;flex-direction:column;gap:1.1rem;}
@@ -357,10 +357,10 @@ footer p{font-size:.78rem;color:var(--muted);}
       <div class="reveal d2">
         <div class="about-right">
           <div class="info-card"><div class="info-icon">👩🏻‍🎓</div><div><div class="info-label">Current Education</div><div class="info-value">M.Sc. Communication &amp; Information Technology<br><span style="color:var(--muted);font-size:.8rem">University of Bremen · Apr 2026 – Apr 2028</span></div></div></div>
-          <div class="info-card"><div class="info-icon">🎓</div><div><div class="info-label">Prior Degree</div><div class="info-value">BS. Electrical Engineering<br><span style="color:var(--muted);font-size:.8rem">Int. Islamic University Islamabad · 2017–2021 · 3.63/4.00 CGPA <br><span style="color:var(--muted);font-size:.8rem">· Distinction Holder · 4.0 GPA (Sem V)</span></div></div></div>
+          <div class="info-card"><div class="info-icon">🎓</div><div><div class="info-label">Prior Degree</div><div class="info-value">BS. Electrical Engineering<br><span style="color:var(--muted);font-size:.8rem">Int. Islamic University Islamabad · 2017–2021 · 3.63/4.00 CGPA <br><span style="color:var(--muted);font-size:.8rem">Distinction Holder · 4.0 GPA (Sem V)</span></div></div></div>
           <div class="info-card"><div class="info-icon">📌</div><div><div class="info-label">Location</div><div class="info-value">Islamabad, Pakistan → <strong>Bremen, Germany</strong><br><span style="color:var(--muted);font-size:.8rem">Relocating in June 2026</span></div></div></div>
           <div class="info-card"><div class="info-icon">🏅</div><div><div class="info-label">Certifications</div><div class="info-value">Microsoft Azure Fundamentals (AZ-900) · ME&amp;CA SmartCare Operations · IIoT &amp; Industry 4.0 · Data Visualisation · Certified Coding Instructor</div></div></div>
-          <div class="info-card"><div class="info-icon">🌐</div><div><div class="info-label">Languages</div><div class="info-value">English — <span style="color:var(--muted);font-size:.8rem"> Full Professional<br>German — <span style="color:var(--muted);font-size:.8rem"> A2/B1 (Actively Advancing)</div></div></div>
+          <div class="info-card"><div class="info-icon">🌐</div><div><div class="info-label">Languages</div><div class="info-value">English — <span style="color:var(--muted);font-size:.8rem"> Full Professional<div><br><div class="info-value">German — <span style="color:var(--muted);font-size:.8rem"> A2/B1 (Actively Advancing)</div></div></div>
           <div class="info-card"><div class="info-icon">👩🏻‍💼</div><div><div class="info-label">Current Role</div><div class="info-value">Network Operations Lead &amp; Infrastructure Engineer<br><span style="color:var(--muted);font-size:.8rem">Huawei Technologies · Aug 2022 – Present · 3 yrs 10 months</span></div></div></div>
         </div>
       </div>
@@ -436,7 +436,7 @@ footer p{font-size:.78rem;color:var(--muted);}
     <div class="timeline">
  
       <div class="timeline-item reveal">
-        <div class="tl-left"><div class="tl-date">Aug 2022 – Present</div><div class="tl-dur">3 yrs 10 months</div><div class="tl-logo"><img src="https://logowik.com/content/uploads/images/443_huawei.jpg" alt="Huawei" style="width: 24px; height: 24px; object-fit: contain;"></div></div>
+        <div class="tl-left"><div class="tl-date">Aug 2022 – Present</div><div class="tl-dur">3 yrs 10 months</div><div class="tl-logo"><img src="https://static.cdnlogo.com/logos/h/72/huawei.png" alt="Huawei" style="width: 30px; height: 30px; object-fit: contain;"></div></div>
         <div class="tl-right">
           <div class="tl-company">Huawei Technologies</div>
           <div class="tl-loc">📍 Pakistan · MECA &amp; Africa Region</div>
@@ -453,7 +453,7 @@ footer p{font-size:.78rem;color:var(--muted);}
       </div>
  
       <div class="timeline-item reveal d1">
-        <div class="tl-left"><div class="tl-date">Apr – Oct 2022</div><div class="tl-dur">7 months</div><div class="tl-logo">💻</div></div>
+        <div class="tl-left"><div class="tl-date">Apr – Oct 2022</div><div class="tl-dur">7 months</div><div class="tl-logo"><img src="https://codingal.s3.amazonaws.com/media/organizations/2021/07/30/Penguin_Big_1h1oAO4.png" alt="Huawei" style="width: 30px; height: 30px; object-fit: contain;"></div></div>
         <div class="tl-right">
           <div class="tl-company">Codingal</div>
           <div class="tl-loc">📍 Bengaluru (Remote)</div>
@@ -467,7 +467,7 @@ footer p{font-size:.78rem;color:var(--muted);}
       </div>
  
       <div class="timeline-item reveal d2">
-        <div class="tl-left"><div class="tl-date">Oct 2021 – Mar 2022</div><div class="tl-dur">6 months</div><div class="tl-logo">🛡️</div></div>
+        <div class="tl-left"><div class="tl-date">Oct 2021 – Mar 2022</div><div class="tl-dur">6 months</div><div class="tl-logo"><img src="https://peoplei.tech/wp-content/uploads/2022/06/Logo-and-Tagline-Container@2x-1.png" alt="Huawei" style="width: 30px; height: 30px; object-fit: contain;"></div></div>
         <div class="tl-right">
           <div class="tl-company">People Perfect</div>
           <div class="tl-loc">📍 Islamabad, Pakistan</div>
@@ -480,7 +480,7 @@ footer p{font-size:.78rem;color:var(--muted);}
       </div>
  
       <div class="timeline-item reveal">
-        <div class="tl-left"><div class="tl-date">Sept 2021</div><div class="tl-dur">1 month</div><div class="tl-logo">🤖</div></div>
+        <div class="tl-left"><div class="tl-date">Sept 2021</div><div class="tl-dur">1 month</div><div class="tl-logo"><img src="https://peoplei.tech/wp-content/uploads/2022/06/Logo-and-Tagline-Container@2x-1.png" alt="Huawei" style="width: 30px; height: 30px; object-fit: contain;"></div></div>
         <div class="tl-right">
           <div class="tl-company">Mindstorm Engineering</div>
           <div class="tl-loc">📍 Karachi, Pakistan</div>
@@ -493,7 +493,7 @@ footer p{font-size:.78rem;color:var(--muted);}
       </div>
  
       <div class="timeline-item reveal d1">
-        <div class="tl-left"><div class="tl-date">Jul – Aug 2019</div><div class="tl-dur">2 months</div><div class="tl-logo">⚡</div></div>
+        <div class="tl-left"><div class="tl-date">Jul – Aug 2019</div><div class="tl-dur">2 months</div><div class="tl-logo"><img src="https://companieslogo.com/img/orig/KSB.NS_BIG-8e85376d.png?t=1720244492" alt="Huawei" style="width: 30px; height: 30px; object-fit: contain;"></div></div>
         <div class="tl-right">
           <div class="tl-company">KSB Company</div>
           <div class="tl-loc">📍 Hassanabdal, Pakistan</div>
