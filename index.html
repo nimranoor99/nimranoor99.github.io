@@ -416,7 +416,7 @@ footer p{font-size:.78rem;color:var(--muted);}
           <div class="info-card"><div class="info-icon">🎓</div><div><div class="info-label">Prior Degree</div><div class="info-value">BS. Electrical Engineering<br><span style="color:var(--muted);font-size:.8rem">Int. Islamic University Islamabad · 2017–2021 · 3.63/4.00 CGPA <br><span style="color:var(--muted);font-size:.8rem">Distinction Holder · 4.0 GPA (Sem V)</span></div></div></div>
           <div class="info-card"><div class="info-icon">📌</div><div><div class="info-label">Location</div><div class="info-value">Islamabad, Pakistan → <strong>Bremen, Germany</strong><br><span style="color:var(--muted);font-size:.8rem">Relocating in June 2026</span></div></div></div>
           <div class="info-card"><div class="info-icon">🏅</div><div><div class="info-label">Certifications</div><div class="info-value">Microsoft Azure Fundamentals (AZ-900) · ME&amp;CA SmartCare Operations · IIoT &amp; Industry 4.0 · Data Visualisation · Certified Coding Instructor</div></div></div>
-          <div class="info-card"><div class="info-icon">🌐</div><div><div class="info-label">Languages</div><div class="info-value">English — <span style="color:var(--muted);font-size:.8rem"> Full Professional<div><br><div class="info-value">German — <span style="color:var(--muted);font-size:.8rem"> A2/B1 (Actively Advancing)</div></div></div>
+          <div class="info-card"><div class="info-icon">🌐</div><div><div class="info-label">Languages</div><div class="info-value">English — <span style="color:var(--muted);font-size:.8rem">Full Professional</span></div><div class="info-value">German — <span style="color:var(--muted);font-size:.8rem">A2/B1 (Actively Advancing)</span></div></div></div>
           <div class="info-card"><div class="info-icon">👩🏻‍💼</div><div><div class="info-label">Current Role</div><div class="info-value">Network Operations Lead &amp; Infrastructure Engineer<br><span style="color:var(--muted);font-size:.8rem">Huawei Technologies · Aug 2022 – Present · 3 yrs 10 months</span></div></div></div>
         </div>
       </div>
@@ -817,55 +817,56 @@ function handleForm(e) {
  
 // MOBILE NAV
 document.getElementById('navLinks').querySelectorAll('a').forEach(a => a.addEventListener('click', ()=>document.getElementById('navLinks').classList.remove('open')));
-</script>
-     
-<script>
-// STATS VIEW
-document.addEventListener('DOMContentLoaded', () => {
-    const stats = document.querySelectorAll('.stat-num');
-    
-    const animateStats = (el) => {
-        const target = parseFloat(el.getAttribute('data-target'));
-        const prefix = el.getAttribute('data-prefix') || '';
-        const suffix = el.getAttribute('data-suffix') || '';
-        const duration = 2000; // 2 seconds
-        const start = 0;
-        let startTime = null;
 
-        const step = (timestamp) => {
-            if (!startTime) startTime = timestamp;
-            const progress = Math.min((timestamp - startTime) / duration, 1);
+ // STATS VIEW
+// Add or replace your existing counter script with this:
+const observerOptions = { threshold: 0.5 };
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const numElement = entry.target.querySelector('.stat-num');
+            const targetString = numElement.innerText.replace('$', ''); // Remove $ for calculation
+            const targetNum = parseFloat(targetString);
             
-            // Calculate current value
-            let current = progress * target;
-            
-            // Format to 2 decimal places if it's a float, otherwise whole number
-            let displayValue = target % 1 === 0 
-                ? Math.floor(current) 
-                : current.toFixed(2);
+            // If the element has already animated or is invalid, skip
+            if (numElement.classList.contains('animated')) return;
 
-            el.innerText = prefix + displayValue + suffix;
+            let start = 0;
+            const duration = 2000; // 2 seconds
+            const startTime = performance.now();
 
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
+            function updateCounter(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Use easeOutQuad for smooth finish
+                const easeProgress = 1 - (1 - progress) * (1 - progress);
+                const currentVal = (easeProgress * targetNum);
+
+                // Formatting Logic
+                if (targetString.includes('.')) {
+                    // For $2.15, keep two decimals
+                    numElement.innerText = (numElement.innerText.startsWith('$') ? '$' : '') + currentVal.toFixed(2);
+                } else {
+                    // For 76, 95, etc., keep as whole integer
+                    numElement.innerText = (numElement.innerText.startsWith('$') ? '$' : '') + Math.floor(currentVal);
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    numElement.classList.add('animated');
+                    // Final snap to exact target value
+                    numElement.innerText = (numElement.innerText.startsWith('$') ? '$' : '') + targetString;
+                }
             }
-        };
+            requestAnimationFrame(updateCounter);
+        }
+    });
+}, observerOptions);
 
-        window.requestAnimationFrame(step);
-    };
-
-    // Intersection Observer to trigger animation when visible
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateStats(entry.target);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    stats.forEach(stat => observer.observe(stat));
-});
+document.querySelectorAll('.stat-item').forEach(item => observer.observe(item));
 
 </script>
 </body>
