@@ -93,7 +93,13 @@ h1 .line{display:block;}
   line-height: 1.1;
   margin-bottom: 0.5rem;
 }
-.stat-label{font-size:.72rem;color:var(--muted);margin-top:.3rem;display:block;line-height:1.3;}
+.stat-label {
+  font-size: .72rem;
+  color: var(--muted);
+  margin-top: .4rem; /* Slightly increased margin */
+  display: block;
+  line-height: 1.5; /* Improved readability for two-line labels */
+}
  
 /* SECTIONS */
 section{padding:6rem 3.5rem;position:relative;}
@@ -357,30 +363,36 @@ footer p{font-size:.78rem;color:var(--muted);}
 <!-- STATS -->
 <div class="stats-band">
   <div class="stats-inner">
-    <div class="stat-item">
-        <span class="stat-num" data-target="76">0</span>
-        <span class="stat-label">Projects<br>Delivered</span>
-    </div>
-    <div class="stat-item">
-        <span class="stat-num" data-prefix="$" data-target="2.15" >0</span>
-        <span class="stat-label">Revenue<br>Generated 2025 (Million) </span>
-    </div>
-    <div class="stat-item">
-        <span class="stat-num" data-target="95" >0</span>
-        <span class="stat-label">Settlement<br>Accuracy (%)</span>
-    </div>
-    <div class="stat-item">
-        <span class="stat-num" data-target="39">0</span>
-        <span class="stat-label">Client Appreciation<br>Letters</span>
-    </div>
-    <div class="stat-item">
-        <span class="stat-num" data-target="13">0</span>
-        <span class="stat-label">Performance<br>Awards</span>
-    </div>
-    <div class="stat-item">
-        <span class="stat-num" data-target="55">0</span>
-        <span class="stat-label">Carrier Networks<br>Monitored</span>
-    </div>
+  <div class="stat-item">
+    <span class="stat-num">76</span>
+    <span class="stat-label">Projects<br>Delivered</span>
+  </div>
+  
+  <div class="stat-item">
+    <span class="stat-num">$2.15</span>
+    <span class="stat-label">Revenue Generated<br>2025 (Millions)</span>
+  </div>
+  
+  <div class="stat-item">
+    <span class="stat-num">95</span>
+    <span class="stat-label">Settlement<br>Accuracy (%)</span>
+  </div>
+  
+  <div class="stat-item">
+    <span class="stat-num">39</span>
+    <span class="stat-label">Client Appreciation<br>Letters</span>
+  </div>
+  
+  <div class="stat-item">
+    <span class="stat-num">13</span>
+    <span class="stat-label">Performance<br>Awards</span>
+  </div>
+  
+  <div class="stat-item">
+    <span class="stat-num">9</span>
+    <span class="stat-label">Carrier Networks<br>Monitored</span>
+  </div>
+</div>
 </div>
   </div>
 </div>
