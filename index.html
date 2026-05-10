@@ -63,11 +63,36 @@ h1 .line{display:block;}
 @keyframes scrollAnim{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
  
 /* STATS */
-.stats-band{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 3.5rem;}
-.stats-inner{display:flex;gap:0;align-items:center;flex-wrap:wrap;justify-content:center;}
-.stat-item{text-align:center;padding:0 2.5rem;border-right:1px solid var(--border);}
-.stat-item:last-child{border-right:none;}
-.stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--accent);display:block;line-height:1;letter-spacing:-.02em;}
+.stats-band{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3rem 1.5rem;}
+.stats-inner {
+  display: grid; /* Switched to grid for better control */
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+  border-right: 1px solid var(--border);
+}
+
+/* Remove border on mobile or last items */
+@media (max-width: 768px) {
+  .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .stat-item:last-child { border-bottom: none; }
+}
+
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.2rem; /* Adjusted size */
+  font-weight: 800;
+  color: var(--accent);
+  display: block;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
 .stat-label{font-size:.72rem;color:var(--muted);margin-top:.3rem;display:block;line-height:1.3;}
  
 /* SECTIONS */
@@ -332,12 +357,31 @@ footer p{font-size:.78rem;color:var(--muted);}
 <!-- STATS -->
 <div class="stats-band">
   <div class="stats-inner">
-    <div class="stat-item"><span class="stat-num"data-target="76">76</span><span class="stat-label">Projects<br>Delivered</span></div>
-    <div class="stat-item"><span class="stat-num">$2.15M</span><span class="stat-label">Revenue<br>Generated 2025</span></div>
-    <div class="stat-item"><span class="stat-num" data-target="95">95</span><span class="stat-label">Settlement<br>Accuracy %</span></div>
-    <div class="stat-item"><span class="stat-num" data-target="39">39</span><span class="stat-label">Client Appreciation<br>Letters</span></div>
-    <div class="stat-item"><span class="stat-num" data-target="13">13</span><span class="stat-label">Performance<br>Awards</span></div>
-    <div class="stat-item"><span class="stat-num" data-target="9">9</span><span class="stat-label">Carrier Networks<br>Monitored</span></div>
+    <div class="stat-item">
+        <span class="stat-num" data-target="76">0</span>
+        <span class="stat-label">Projects<br>Delivered</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-num" data-prefix="$" data-target="2.15" data-suffix="M">0</span>
+        <span class="stat-label">Revenue<br>Generated 2025</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-num" data-target="95" data-suffix="%">0</span>
+        <span class="stat-label">Settlement<br>Accuracy %</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-num" data-target="39">0</span>
+        <span class="stat-label">Client Appreciation<br>Letters</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-num" data-target="13">0</span>
+        <span class="stat-label">Performance<br>Awards</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-num" data-target="9">0</span>
+        <span class="stat-label">Carrier Networks<br>Monitored</span>
+    </div>
+</div>
   </div>
 </div>
  
@@ -761,6 +805,56 @@ function handleForm(e) {
  
 // MOBILE NAV
 document.getElementById('navLinks').querySelectorAll('a').forEach(a => a.addEventListener('click', ()=>document.getElementById('navLinks').classList.remove('open')));
+</script>
+     
+<script>
+// STATS VIEW
+document.addEventListener('DOMContentLoaded', () => {
+    const stats = document.querySelectorAll('.stat-num');
+    
+    const animateStats = (el) => {
+        const target = parseFloat(el.getAttribute('data-target'));
+        const prefix = el.getAttribute('data-prefix') || '';
+        const suffix = el.getAttribute('data-suffix') || '';
+        const duration = 2000; // 2 seconds
+        const start = 0;
+        let startTime = null;
+
+        const step = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            
+            // Calculate current value
+            let current = progress * target;
+            
+            // Format to 2 decimal places if it's a float, otherwise whole number
+            let displayValue = target % 1 === 0 
+                ? Math.floor(current) 
+                : current.toFixed(2);
+
+            el.innerText = prefix + displayValue + suffix;
+
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+
+        window.requestAnimationFrame(step);
+    };
+
+    // Intersection Observer to trigger animation when visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateStats(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    stats.forEach(stat => observer.observe(stat));
+});
+
 </script>
 </body>
 </html>
