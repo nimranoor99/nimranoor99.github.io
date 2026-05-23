@@ -1,275 +1,848 @@
-<!DOCTYPE html>
+Check it: <!DOCTYPE html>
+
 <html lang="en"> 
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nimra Noor — Network Infrastructure Engineer · Bremen, Germany</title>
+
 <meta name="description" content="Network Operations Lead with 3.5+ years in 5G SA/NSA, SRv6, SDN/NFV, MPLS. Relocating to Bremen, Germany June 2026. Available for ICT roles.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
 <style>
+
 :root{--black:#080808;--surface:#0f0f0f;--card:#141414;--card2:#1a1a1a;--white:#f0ede8;--accent:#00e5a0;--accent2:#00c2e0;--accent3:#7b61ff;--muted:#666;--muted2:#999;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);}
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
 html{scroll-behavior:smooth;}
+
 body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;line-height:1.7;overflow-x:hidden;cursor:none;}
+
 #cursor{position:fixed;width:12px;height:12px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .25s,height .25s;}
+
 #cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(0,229,160,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
+
 #scroll-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:200;width:0%;}
+
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 3.5rem;background:rgba(8,8,8,.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:padding .3s;}
+
 nav.scrolled{padding:.75rem 3.5rem;}
+
 .nav-logo{display:flex;align-items:center;gap:.65rem;text-decoration:none;}
+
 .logo-mark{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
 .logo-mark svg{width:22px;height:22px;}
+
 .logo-text{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:var(--white);letter-spacing:-.02em;line-height:1.1;}
+
 .logo-text span{color:var(--accent);}
+
 .logo-sub{font-size:.62rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;display:block;}
+
 .nav-links{display:flex;align-items:center;gap:.2rem;list-style:none;}
+
 .nav-links a{color:var(--muted2);text-decoration:none;font-size:.82rem;padding:.4rem .75rem;border-radius:6px;transition:color .2s,background .2s;}
+
 .nav-links a:hover{color:var(--white);background:rgba(255,255,255,.05);}
+
 .nav-links a.active{color:var(--accent);}
+
 .nav-cta{background:var(--accent)!important;color:var(--black)!important;font-weight:500!important;padding:.45rem 1.2rem!important;border-radius:100px!important;transition:opacity .2s,transform .2s!important;}
+
 .nav-cta:hover{opacity:.85!important;transform:translateY(-1px)!important;}
+
 .nav-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.4rem;cursor:pointer;}
+
  
+
 /* HERO */
+
 #hero{min-height:100vh;display:grid;place-items:center;padding:9rem 3.5rem 5rem;position:relative;overflow:hidden;}
+
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,229,160,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.035) 1px,transparent 1px);background-size:56px 56px;animation:gridShift 20s linear infinite;}
+
 @keyframes gridShift{0%{background-position:0 0;}100%{background-position:56px 56px;}}
+
 .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:orbFloat 8s ease-in-out infinite;}
+
 .orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(0,229,160,.07) 0%,transparent 70%);top:10%;left:-10%;animation-delay:0s;}
+
 .orb-2{width:400px;height:400px;background:radial-gradient(circle,rgba(0,194,224,.06) 0%,transparent 70%);top:30%;right:-8%;animation-delay:-3s;}
+
 .orb-3{width:300px;height:300px;background:radial-gradient(circle,rgba(123,97,255,.05) 0%,transparent 70%);bottom:10%;left:30%;animation-delay:-5s;}
+
 @keyframes orbFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-30px) scale(1.05);}}
+
 .net-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+
 .net-bg svg{width:100%;height:100%;opacity:.15;}
+
 .hero-content{position:relative;z-index:1;text-align:center;max-width:860px;}
+
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.2);color:var(--accent);font-size:.78rem;font-weight:500;padding:.4rem 1.1rem;border-radius:100px;letter-spacing:.07em;text-transform:uppercase;margin-bottom:2.2rem;animation:fadeUp .8s ease both;}
+
 .badge-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite;}
+
 @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,229,160,.4);}50%{opacity:.6;box-shadow:0 0 0 6px rgba(0,229,160,0);}}
+
 h1{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,5.5vw,4.5rem);font-weight:800;line-height:1.1;letter-spacing:-.035em;margin-bottom:1.6rem;animation:fadeUp .9s .1s ease both;word-break:keep-all;overflow: visible;padding-bottom: 0.2em;}
+
 h1 .line{display:block;}
+
 .grad{background:linear-gradient(125deg,var(--accent) 0%,var(--accent2) 50%,var(--accent3) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200%;animation:gradShift 4s ease infinite;}
+
 @keyframes gradShift{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+
 .hero-sub{font-size:1.05rem;color:var(--muted2);max-width:600px;margin:0 auto 2.8rem;font-weight:300;line-height:1.85;animation:fadeUp .9s .2s ease both;}
+
 .hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .9s .3s ease both;}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+
 .btn-p{background:var(--accent);color:var(--black);font-family:'DM Sans',sans-serif;font-weight:500;font-size:.9rem;padding:.85rem 1.8rem;border-radius:100px;text-decoration:none;border:none;cursor:pointer;transition:opacity .2s,transform .2s,box-shadow .2s;display:inline-flex;align-items:center;gap:.4rem;}
+
 .btn-p:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,229,160,.25);}
+
 .btn-s{background:transparent;color:var(--white);font-family:'DM Sans',sans-serif;font-weight:400;font-size:.9rem;padding:.85rem 1.8rem;border-radius:100px;text-decoration:none;border:1px solid var(--border2);cursor:pointer;transition:border-color .2s,transform .2s,background .2s;display:inline-flex;align-items:center;gap:.4rem;}
+
 .btn-s:hover{border-color:rgba(255,255,255,.25);transform:translateY(-2px);background:rgba(255,255,255,.04);}
+
 .hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--muted);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;animation:fadeIn 1.5s 1s ease both;}
+
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
 .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollAnim 1.5s ease-in-out infinite;}
+
 @keyframes scrollAnim{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+
  
+
 /* STATS */
+
 .stats-band{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3rem 1.5rem;}
+
 .stats-inner {
-  display: grid;
+
+  display: grid; /* Switched to grid for better control */
+
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+
   gap: 2rem;
+
   max-width: 1200px;
+
   margin: 0 auto;
+
 }
+
+
+
 .stat-item {
+
   text-align: center;
+
   padding: 1rem;
+
   border-right: 1px solid var(--border);
+
 }
+
+
+
+/* Remove border on mobile or last items */
+
 @media (max-width: 768px) {
+
   .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+
   .stat-item:last-child { border-bottom: none; }
+
 }
+
+
+
 .stat-num {
+
   font-family: 'Syne', sans-serif;
-  font-size: 2.2rem;
+
+  font-size: 2.2rem; /* Adjusted size */
+
   font-weight: 800;
+
   color: var(--accent);
+
   display: block;
+
   line-height: 1.1;
+
   margin-bottom: 0.5rem;
+
 }
+
 .stat-label {
+
   font-size: .72rem;
+
   color: var(--muted);
-  margin-top: .4rem;
+
+  margin-top: .4rem; /* Slightly increased margin */
+
   display: block;
-  line-height: 1.5;
+
+  line-height: 1.5; /* Improved readability for two-line labels */
+
 }
+
  
+
 /* SECTIONS */
+
 section{padding:6rem 3.5rem;position:relative;}
+
 .container{max-width:1160px;margin:0 auto;}
+
 .eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;}
+
 .eyebrow::before{content:'';width:20px;height:1px;background:var(--accent);display:block;}
+
 .sec-title{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;letter-spacing:-.025em;line-height:1.3;overflow:visible;margin-bottom:1.2rem;padding-bottom:10px;}
+
 .sec-sub{color:var(--muted2);max-width:520px;margin-bottom:3.5rem;font-weight:300;font-size:.95rem;line-height:1.8;}
+
  
+
 /* ABOUT */
+
 #about{background:var(--surface);}
+
 .about-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:5rem;align-items:start;}
+
 .about-text p{text-align:justify;text-justify:inter-character;hyphens:auto;color:#aaa;margin-bottom:1.3rem;line-height:1.95;font-weight:300;font-size:.97rem;}
+
 .about-text p strong{color:var(--white);font-weight:500;}
+
 .highlight-box{border-left:2px solid var(--accent);padding:1rem 1.5rem;background:rgba(0,229,160,.04);border-radius:0 8px 8px 0;margin:1.5rem 0;font-size:.95rem;color:var(--muted2);font-style:italic;line-height:1.8;}
+
 .about-right{display:flex;flex-direction:column;gap:1.1rem;}
+
 .info-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.4rem;display:flex;align-items:flex-start;gap:1rem;transition:border-color .3s,transform .3s;}
+
 .info-card:hover{border-color:rgba(0,229,160,.25);transform:translateX(4px);}
+
 .info-icon{width:38px;height:38px;background:rgba(0,229,160,.08);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+
 .info-label{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.2rem;}
+
 .info-value{font-size:.87rem;color:var(--white);line-height:1.5;}
+
 .avail-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(0,229,160,.1);border:1px solid rgba(0,229,160,.25);color:var(--accent);font-size:.78rem;padding:.5rem 1rem;border-radius:100px;font-weight:500;margin-top:.5rem;width:fit-content;}
 
-@media(max-width:980px){
-  body{cursor:auto;}
-  #cursor,#cursor-ring{display:none;}
-  nav{padding:1rem 1.5rem;}
-  .nav-links{display:none;position:fixed;top:64px;left:0;right:0;background:var(--surface);flex-direction:column;border-bottom:1px solid var(--border);padding:1rem;z-index:99;}
-  .nav-links.open{display:flex;}
-  .nav-toggle{display:block;}
-  section{padding:4rem 1.5rem;}
-  .about-grid{grid-template-columns:1fr;gap:2rem;}
-  #hero{padding:7rem 1.5rem 4rem;}
-  footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem;}
-  .stats-inner{gap:1rem;}
-  .stat-item{padding:0 1rem;}
+ 
+
+/* SKILLS */
+
+#skills{background:var(--black);}
+
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;transition:border-color .3s,transform .3s;position:relative;overflow:hidden;}
+
+.skill-card:hover{border-color:rgba(0,229,160,.25);transform:translateY(-4px);}
+
+.skill-icon{font-size:1.6rem;margin-bottom:.9rem;display:block;}
+
+.skill-card h3{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:700;margin-bottom:.9rem;color:var(--white);}
+
+.skill-tags{display:flex;flex-wrap:wrap;gap:.35rem;}
+
+.skill-tag{background:rgba(255,255,255,.05);border:1px solid var(--border);color:#b0b0b0;font-size:.7rem;padding:.2rem .55rem;border-radius:100px;transition:background .2s,color .2s;}
+
+.skill-tag.hot{background:rgba(0,229,160,.08);border-color:rgba(0,229,160,.2);color:var(--accent);}
+
+.demand-bar{margin-top:1rem;display:flex;align-items:center;gap:.6rem;font-size:.68rem;color:var(--muted);}
+
+.demand-track{flex:1;height:3px;background:rgba(255,255,255,.07);border-radius:10px;overflow:hidden;}
+
+.demand-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:10px;width:0%;transition:width 1.5s ease;}
+
+ 
+
+/* EXPERIENCE */
+
+#experience{background:var(--surface);}
+
+.timeline-item{display:grid;grid-template-columns:190px 1fr;gap:3rem;padding-bottom:3.5rem;position:relative;}
+
+.timeline-item:not(:last-child)::after{content:'';position:absolute;left:calc(190px + 1.5rem + 1rem);top:2.5rem;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(0,229,160,.3),transparent);}
+
+.tl-left{padding-top:.15rem;}
+
+.tl-date{font-size:.72rem;color:var(--accent);font-weight:500;letter-spacing:.06em;margin-bottom:.25rem;}
+
+.tl-dur{font-size:.7rem;color:var(--muted);}
+
+.tl-logo{width:40px;height:40px;background:var(--card2);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-top:.75rem;}
+
+.tl-right{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem 2rem;position:relative;transition:border-color .3s;}
+
+.tl-right:hover{border-color:rgba(0,229,160,.2);}
+
+.tl-right::before{content:'';position:absolute;top:1.4rem;left:-8px;width:15px;height:15px;background:var(--accent);border-radius:50%;box-shadow:0 0 16px rgba(0,229,160,.5);}
+
+.tl-company{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:.15rem;}
+
+.tl-loc{font-size:.73rem;color:var(--muted);margin-bottom:.3rem;}
+
+.tl-role{color:var(--accent2);font-size:.85rem;font-weight:500;margin-bottom:1.2rem;}
+
+.ach{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+
+.ach li{display:flex;gap:.75rem;align-items:flex-start;font-size:.875rem;color:#aaa;line-height:1.65;font-weight:300;}
+
+.ach li::before{content:'▹';color:var(--accent);font-size:.7rem;flex-shrink:0;margin-top:.35rem;}
+
+.ach li strong{color:#e0e0e0;font-weight:500;}
+
+.metric{display: inline-block;background:rgba(0,229,160,.1);color:var(--accent);font-size:.7rem;font-weight:600;padding: 2px 8px;border-radius:4px;margin: 0 2px;vertical-align: middle;}
+
+ .ach li {
+
+    display: block; /* Ensures bullet points and text flow correctly */
+
+    margin-bottom: 0.8rem;
+
+    line-height: 1.6;
+
 }
+
+ 
+
+/* PROJECTS */
+
+#projects{background:var(--black);}
+
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
+
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:border-color .3s,transform .3s;position:relative;overflow:hidden;display:flex;flex-direction:column;}
+
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));opacity:0;transition:opacity .4s;}
+
+.proj-card:hover::before{opacity:1;}
+
+.proj-card:hover{border-color:rgba(0,229,160,.2);transform:translateY(-5px);}
+
+.proj-num{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:rgba(255,255,255,.04);position:absolute;top:.8rem;right:1.5rem;line-height:1;letter-spacing:-.05em;}
+
+.proj-cat{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;}
+
+.proj-card h3{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.7rem;line-height:1.35;}
+
+.proj-outcome{display:flex;align-items:center;gap:.5rem;background:rgba(0,229,160,.06);border-radius:8px;padding:.6rem .9rem;margin-bottom:.9rem;font-size:.8rem;color:var(--accent);font-weight:500;}
+
+.proj-card p{color:#888;font-size:.85rem;line-height:1.75;font-weight:300;margin-bottom:1.2rem;flex:1;}
+
+.proj-tags{display:flex;flex-wrap:wrap;gap:.35rem;}
+
+.proj-tag{background:rgba(0,229,160,.06);border:1px solid rgba(0,229,160,.15);color:var(--accent);font-size:.68rem;padding:.18rem .55rem;border-radius:100px;font-weight:500;}
+
+ 
+
+/* OPERATORS */
+
+#operators{background:var(--surface);}
+
+.ops-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+
+.op-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;transition:border-color .3s,transform .3s;}
+
+.op-card:hover{border-color:rgba(0,229,160,.25);transform:translateY(-3px);}
+
+.op-flag{font-size:1.8rem;margin-bottom:.6rem;display:block;}
+
+.op-name{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;margin-bottom:.2rem;}
+
+.op-country{font-size:.72rem;color:var(--muted);}
+
+.op-scope{font-size:.7rem;color:var(--accent);margin-top:.5rem;}
+
+ 
+
+/* AWARDS */
+
+#awards{background:var(--black);}
+
+.awards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3.5rem;}
+
+.aw-group-title{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--border);}
+
+.aw-list{display:flex;flex-direction:column;gap:.9rem;}
+
+.aw-item{display:flex;align-items:flex-start;gap:.9rem;padding:1rem 1.2rem;background:var(--card);border:1px solid var(--border);border-radius:12px;transition:border-color .2s,transform .2s;}
+
+.aw-item:hover{border-color:rgba(0,229,160,.2);transform:translateX(3px);}
+
+.aw-emoji{font-size:1.2rem;flex-shrink:0;margin-top:.05rem;}
+
+.aw-title{font-size:.87rem;font-weight:500;margin-bottom:.15rem;line-height:1.4;}
+
+.aw-desc{font-size:.75rem;color:var(--muted);}
+
+ 
+
+/* GERMANY */
+
+#germany{background:var(--surface);}
+
+.de-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+
+.ready-list{display:flex;flex-direction:column;gap:1rem;}
+
+.ready-item{display:flex;align-items:center;gap:1rem;padding:1rem 1.4rem;background:var(--card);border:1px solid var(--border);border-radius:12px;}
+
+.ready-check{width:28px;height:28px;background:rgba(0,229,160,.1);border:1px solid rgba(0,229,160,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:.8rem;flex-shrink:0;}
+
+.ready-text{font-size:.87rem;color:#bbb;line-height:1.4;}
+
+.ready-text strong{color:var(--white);font-weight:500;}
+
+.emp-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.8rem;}
+
+.emp-title{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:1.2rem;}
+
+.emp-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.85rem;}
+
+.emp-row:last-child{border-bottom:none;}
+
+.emp-name{color:var(--white);}
+
+.emp-match{font-size:.68rem;background:rgba(0,229,160,.1);color:var(--accent);border:1px solid rgba(0,229,160,.2);padding:.15rem .55rem;border-radius:100px;font-weight:500;}
+
+ 
+
+/* CONTACT */
+
+#contact{background:var(--black);}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+
+.contact-info p{color:var(--muted2);font-weight:300;margin-bottom:2.5rem;line-height:1.9;font-size:.97rem;}
+
+.c-links{display:flex;flex-direction:column;gap:.85rem;}
+
+.c-link{display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--white);font-size:.88rem;padding:.9rem 1.2rem;background:var(--card);border:1px solid var(--border);border-radius:12px;transition:border-color .2s,transform .2s;}
+
+.c-link:hover{border-color:rgba(0,229,160,.3);transform:translateX(4px);}
+
+.c-link-icon{font-size:1.1rem;}
+
+.c-link-label{font-size:.68rem;color:var(--muted);display:block;text-transform:uppercase;letter-spacing:.06em;}
+
+.c-link-value{font-size:.83rem;font-weight:500;}
+
+.c-form{display:flex;flex-direction:column;gap:1rem;}
+
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+
+.f-group{display:flex;flex-direction:column;gap:.35rem;}
+
+.f-group label{font-size:.7rem;font-weight:500;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
+
+.f-group input,.f-group textarea,.f-group select{background:var(--card);border:1px solid var(--border);color:var(--white);font-family:'DM Sans',sans-serif;font-size:.875rem;padding:.8rem 1rem;border-radius:10px;outline:none;transition:border-color .2s;resize:none;width:100%;}
+
+.f-group input::placeholder,.f-group textarea::placeholder{color:#333;}
+
+.f-group input:focus,.f-group textarea:focus,.f-group select:focus{border-color:rgba(0,229,160,.4);}
+
+.f-group select option{background:var(--card);}
+
+ 
+
+/* FOOTER */
+
+footer{padding:2rem 3.5rem;border-top:1px solid var(--border);background:var(--surface);display:flex;justify-content:space-between;align-items:center;}
+
+footer p{font-size:.78rem;color:var(--muted);}
+
+.f-links{display:flex;gap:1.5rem;}
+
+.f-links a{font-size:.78rem;color:var(--muted);text-decoration:none;transition:color .2s;}
+
+.f-links a:hover{color:var(--accent);}
+
+ 
+
+/* REVEAL */
+
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease;}
+
+.reveal.in{opacity:1;transform:translateY(0);}
+
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+
+ 
+
+::-webkit-scrollbar{width:4px;}
+
+::-webkit-scrollbar-track{background:var(--black);}
+
+::-webkit-scrollbar-thumb{background:rgba(0,229,160,.35);border-radius:10px;}
+
+ 
+
+@media(max-width:980px){
+
+  body{cursor:auto;}
+
+  #cursor,#cursor-ring{display:none;}
+
+  nav{padding:1rem 1.5rem;}
+
+  .nav-links{display:none;position:fixed;top:64px;left:0;right:0;background:var(--surface);flex-direction:column;border-bottom:1px solid var(--border);padding:1rem;z-index:99;}
+
+  .nav-links.open{display:flex;}
+
+  .nav-toggle{display:block;}
+
+  section{padding:4rem 1.5rem;}
+
+  .skills-grid,.proj-grid,.awards-grid,.de-grid,.contact-grid,.about-grid{grid-template-columns:1fr;gap:2rem;}
+
+  .ops-grid{grid-template-columns:repeat(2,1fr);}
+
+  .timeline-item{grid-template-columns:1fr;gap:1rem;}
+
+  .timeline-item::after{display:none;}
+
+  .f-row{grid-template-columns:1fr;}
+
+  #hero{padding:7rem 1.5rem 4rem;}
+
+  footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem;}
+
+  .stats-inner{gap:1rem;}
+
+  .stat-item{padding:0 1rem;}
+
+}
+
 </style>
+
 </head>
+
 <body>
+
 <div id="cursor"></div>
+
 <div id="cursor-ring"></div>
+
 <div id="scroll-bar"></div>
+
  
+
+<!-- NAV -->
+
 <nav id="navbar">
+
   <a href="#hero" class="nav-logo">
+
     <div class="logo-mark">
+
+      <svg viewBox="0 0 24 24" fill="none">
+
+        <circle cx="12" cy="12" r="3" fill="#080808"/>
+
+        <circle cx="4" cy="6" r="2" fill="#080808"/>
+
+        <circle cx="20" cy="6" r="2" fill="#080808"/>
+
+        <circle cx="4" cy="18" r="2" fill="#080808"/>
+
+        <circle cx="20" cy="18" r="2" fill="#080808"/>
+
+        <line x1="9" y1="10.3" x2="5.5" y2="7.5" stroke="#080808" stroke-width="1.5" stroke-linecap="round"/>
+
+        <line x1="15" y1="10.3" x2="18.5" y2="7.5" stroke="#080808" stroke-width="1.5" stroke-linecap="round"/>
+
+        <line x1="9" y1="13.7" x2="5.5" y2="16.5" stroke="#080808" stroke-width="1.5" stroke-linecap="round"/>
+
+        <line x1="15" y1="13.7" x2="18.5" y2="16.5" stroke="#080808" stroke-width="1.5" stroke-linecap="round"/>
+
+      </svg>
+
+    </div>
+
+   <div class="logo-mark">
+
       <img src="Logo.png" alt="Nimra Noor Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+
     </div>
-    <div>
+
+   <div>
+
       <div class="logo-text">Nimra<span>.</span></div>
+
       <span class="logo-sub">Network Engineer</span>
+
     </div>
+
+   
+
   </a>
+
   <ul class="nav-links" id="navLinks">
+
     <li><a href="#about">About</a></li>
+
     <li><a href="#skills">Skills</a></li>
+
     <li><a href="#experience">Experience</a></li>
+
     <li><a href="#projects">Projects</a></li>
+
     <li><a href="#operators">Clients</a></li>
+
     <li><a href="#germany">Germany</a></li>
+
     <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+
   </ul>
+
   <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+
 </nav>
+
  
+
+<!-- HERO -->
+
 <section id="hero">
+
   <div class="hero-grid"></div>
+
   <div class="orb orb-1"></div>
+
   <div class="orb orb-2"></div>
+
   <div class="orb orb-3"></div>
+
   <div class="net-bg">
+
     <svg viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice">
+
       <g stroke="rgba(0,229,160,.45)" stroke-width=".5" fill="none">
+
         <line x1="100" y1="200" x2="300" y2="350"><animate attributeName="opacity" values=".2;.6;.2" dur="4s" repeatCount="indefinite"/></line>
+
         <line x1="300" y1="350" x2="550" y2="200"><animate attributeName="opacity" values=".2;.7;.2" dur="5s" repeatCount="indefinite"/></line>
+
         <line x1="550" y1="200" x2="700" y2="380"><animate attributeName="opacity" values=".3;.6;.3" dur="3s" repeatCount="indefinite"/></line>
+
         <line x1="700" y1="380" x2="900" y2="150"><animate attributeName="opacity" values=".2;.5;.2" dur="6s" repeatCount="indefinite"/></line>
+
         <line x1="900" y1="150" x2="1100" y2="300"><animate attributeName="opacity" values=".3;.7;.3" dur="4s" repeatCount="indefinite"/></line>
+
         <line x1="1100" y1="300" x2="1300" y2="200"><animate attributeName="opacity" values=".2;.6;.2" dur="5s" repeatCount="indefinite"/></line>
+
         <line x1="300" y1="350" x2="500" y2="500"><animate attributeName="opacity" values=".1;.5;.1" dur="7s" repeatCount="indefinite"/></line>
+
         <line x1="700" y1="380" x2="500" y2="500"><animate attributeName="opacity" values=".2;.5;.2" dur="4s" repeatCount="indefinite"/></line>
+
         <line x1="900" y1="500" x2="700" y2="380"><animate attributeName="opacity" values=".2;.6;.2" dur="5s" repeatCount="indefinite"/></line>
+
       </g>
+
       <g fill="rgba(0,229,160,.6)">
+
         <circle cx="100" cy="200" r="4"><animate attributeName="r" values="3;5;3" dur="3s" repeatCount="indefinite"/></circle>
+
         <circle cx="300" cy="350" r="6"><animate attributeName="r" values="5;8;5" dur="4s" repeatCount="indefinite"/></circle>
+
         <circle cx="550" cy="200" r="4"><animate attributeName="r" values="3;6;3" dur="5s" repeatCount="indefinite"/></circle>
+
         <circle cx="700" cy="380" r="7"><animate attributeName="r" values="6;9;6" dur="3.5s" repeatCount="indefinite"/></circle>
+
         <circle cx="900" cy="150" r="4"><animate attributeName="r" values="3;5;3" dur="6s" repeatCount="indefinite"/></circle>
+
         <circle cx="1100" cy="300" r="5"><animate attributeName="r" values="4;7;4" dur="4s" repeatCount="indefinite"/></circle>
+
         <circle cx="500" cy="500" r="4"><animate attributeName="r" values="3;6;3" dur="7s" repeatCount="indefinite"/></circle>
+
         <circle cx="900" cy="500" r="5"><animate attributeName="r" values="4;7;4" dur="4s" repeatCount="indefinite"/></circle>
+
       </g>
+
       <circle r="4" fill="#00c2e0" opacity=".8">
+
         <animateMotion dur="8s" repeatCount="indefinite" path="M100,200 L300,350 L550,200 L700,380 L900,150 L1100,300 L1300,200"/>
+
       </circle>
+
       <circle r="3" fill="#00e5a0" opacity=".7">
+
         <animateMotion dur="10s" repeatCount="indefinite" begin="-3s" path="M300,350 L500,500 L700,380 L900,500 L1100,300"/>
+
       </circle>
+
     </svg>
+
   </div>
+
  
+
   <div class="hero-content">
+
     <div class="hero-badge"><span class="badge-dot"></span>Open to ICT Roles · Bremen, Germany </div>
+
     <h1>
+
       <span class="line">Network</span>
+
       <span class="line"><span class="grad">Infrastructure</span></span>
+
       <span class="line">Engineer</span>
+
     </h1>
+
     <p class="hero-sub">3.5+ years delivery experience of <strong style="color:var(--white)"> 5G SA/NSA · SRv6 · SDN/NFV · MPLS</strong> across MECA &amp; Africa at Huawei — now pursuing M.Sc. at the University of Bremen.</p>
+
     <div class="hero-ctas">
+
       <a href="#contact" class="btn-p">Get In Touch →</a>
+
       <a href="#experience" class="btn-s">View Experience</a>
+
     </div>
+
   </div>
+
   <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
-</section>
- 
-<div class="stats-band">
-  <div class="stats-inner">
-    <div class="stat-item">
-      <span class="stat-num">76</span>
-      <span class="stat-label">Projects<br>Delivered</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">$2.15</span>
-      <span class="stat-label">Revenue Generated<br>2025 (Millions)</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">95</span>
-      <span class="stat-label">Settlement<br>Accuracy (%)</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">39</span>
-      <span class="stat-label">Client Appreciation<br>Letters</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">13</span>
-      <span class="stat-label">Performance<br>Awards</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">9</span>
-      <span class="stat-label">Carrier Networks<br>Monitored</span>
-    </div>
-  </div>
-</div>
- 
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="reveal in">
-        <span class="eyebrow">About Me</span>
-        <h2 class="sec-title">The engineer behind the network</h2>
-        <div class="about-text">
-          <p>I'm <strong>Nimra Noor</strong> — a Network Operations Lead at Huawei with deep, hands-on expertise in next-generation telecom infrastructure. In 3.5+ years, I've designed, deployed, and operated carrier-grade networks for major operators across the Middle East and Africa, working across <strong>Huawei, ZTE, and Ericsson</strong> multi-vendor environments.</p>
-          <p>My core strength lies at the intersection of <strong>5G core engineering, transport networking (SRv6/MPLS/DWDM), and intelligent automation</strong>. I've led 76 network deployment projects with 95% settlement accuracy — generating $2.15M in revenue in 2025 and driven network operation automation strategies using AI/ML and LLM-powered runbooks targeting 60% L1 ticket resolution and 35% MTTR reduction.</p>
-        </div>
-        <div class="highlight-box">"I don't just keep networks running, I redesign how they operate. My goal in Germany is to contribute to 5G SA evolution, cloud-native NFV architectures, and intelligent network automation in a European ICT environment."</div>
-        <p>From <strong>April 2026</strong> I am enrolled in a <strong>M.Sc. in Communication and Information Technology</strong> at the University of Bremen — deepening my theoretical foundation in wireless systems, signal processing, and advanced communications engineering while continuing to apply hands-on industry expertise.</p>
-        <div class="avail-badge"><span class="badge-dot"></span>Available for Werkstudent / Part-time / Full-time · All Germany Cities (Onsite &amp; Remote)</div>
-      </div>
-      <div class="reveal in d2">
-        <div class="about-right">
-          <div class="info-card"><div class="info-icon">👩🏻‍🎓</div><div><div class="info-label">Current Education</div><div class="info-value">M.Sc. Communication &amp; Information Technology<br><span style="color:var(--muted);font-size:.8rem">University of Bremen · Apr 2026 – Apr 2028</span></div></div></div>
-          <div class="info-card"><div class="info-icon">🎓</div><div><div class="info-label">Prior Degree</div><div class="info-value">BS. Electrical Engineering<br><span style="color:var(--muted);font-size:.8rem">Int. Islamic University Islamabad · 2017–2021 · 3.63/4.00 CGPA <br>Distinction Holder · 4.0 GPA (Sem V)</span></div></div></div>
-          <div class="info-card"><div class="info-icon">📌</div><div><div class="info-label">Location</div><div class="info-value">Islamabad, Pakistan → <strong>Bremen, Germany</strong><br><span style="color:var(--muted);font-size:.8rem">Relocating in June 2026</span></div></div></div>
-          <div class="info-card"><div class="info-icon">🏅</div><div><div class="info-label">Certifications</div><div class="info-value">Microsoft Azure Fundamentals (AZ-900) · ME&amp;CA SmartCare Operations · IIoT &amp; Industry 4.0 · Data Visualisation · Certified Coding Instructor</div></div></div>
-          <div class="info-card"><div class="info-icon">🌐</div><div><div class="info-label">Languages</div><div class="info-value">English — <span style="color:var(--muted);font-size:.8rem">Full Professional</span><br>German — <span style="color:var(--muted);font-size:.8rem">A2/B1 (Actively Advancing)</span></div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 </section>
 
-</body>
-</html>
+ 
+
+<!-- STATS -->
+
+<div class="stats-band">
+
+  <div class="stats-inner">
+
+  <div class="stat-item">
+
+    <span class="stat-num">76</span>
+
+    <span class="stat-label">Projects<br>Delivered</span>
+
+  </div>
+
+  
+
+  <div class="stat-item">
+
+    <span class="stat-num">$2.15</span>
+
+    <span class="stat-label">Revenue Generated<br>2025 (Millions)</span>
+
+  </div>
+
+  
+
+  <div class="stat-item">
+
+    <span class="stat-num">95</span>
+
+    <span class="stat-label">Settlement<br>Accuracy (%)</span>
+
+  </div>
+
+  
+
+  <div class="stat-item">
+
+    <span class="stat-num">39</span>
+
+    <span class="stat-label">Client Appreciation<br>Letters</span>
+
+  </div>
+
+  
+
+  <div class="stat-item">
+
+    <span class="stat-num">13</span>
+
+    <span class="stat-label">Performance<br>Awards</span>
+
+  </div>
+
+  
+
+  <div class="stat-item">
+
+    <span class="stat-num">9</span>
+
+    <span class="stat-label">Carrier Networks<br>Monitored</span>
+
+  </div>
+
+</div>
+
+</div>
+
+  </div>
+
+</div>
+
+ 
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <div class="container">
+
+    <div class="about-grid">
+
+      <div class="reveal">
+
+        <span class="eyebrow">About Me</span>
+
+        <h2 class="sec-title">The engineer behind the network</h2>
+
+        <p>I'm <strong>Nimra Noor</strong> — a Network Operations Lead at Huawei with deep, hands-on expertise in next-generation telecom infrastructure. In 3.5+ years, I've designed, deployed, and operated carrier-grade networks for major operators across the Middle East and Africa, working across <strong>Huawei, ZTE, and Ericsson</strong> multi-vendor environments.</p>
+
+        <p>My core strength lies at the intersection of <strong>5G core engineering, transport networking (SRv6/MPLS/DWDM), and intelligent automation</strong>. I've led 76 network deployment projects with 95% settlement accuracy — generating $2.15M in revenue in 2025 and driven network operation automation strategies using AI/ML and LLM-powered runbooks targeting 60% L1 ticket resolution and 35% MTTR reduction.</p>
+
+        <div class="highlight-box">"I don't just keep networks running, I redesign how they operate. My goal in Germany is to contribute to 5G SA evolution, cloud-native NFV architectures, and intelligent network automation in a European ICT environment."</div>
+
+        <p>From <strong>April 2026</strong> I am enrolled in a <strong>M.Sc. in Communication and Information Technology</strong> at the University of Bremen — deepening my theoretical foundation in wireless systems, signal processing, and advanced communications engineering while continuing to apply hands-on industry expertise.</p>
+
+        <div class="avail-badge"><span class="badge-dot"></span>Available for Werkstudent / Part-time / Full-time · All Germany Cities (Onsite &amp; Remote)</div>
+
+      </div>
+
+      <div class="reveal d2">
+
+        <div class="about-right">
+
+          <div class="info-card"><div class="info-icon">👩🏻‍🎓</div><div><div class="info-label">Current Education</div><div class="info-value">M.Sc. Communication &amp; Information Technology<br><span style="color:var(--muted);font-size:.8rem">University of Bremen · Apr 2026 – Apr 2028</span></div></div></div>
+
+          <div class="info-card"><div class="info-icon">🎓</div><div><div class="info-label">Prior Degree</div><div class="info-value">BS. Electrical Engineering<br><span style="color:var(--muted);font-size:.8rem">Int. Islamic University Islamabad · 2017–2021 · 3.63/4.00 CGPA <br><span style="color:var(--muted);font-size:.8rem">Distinction Holder · 4.0 GPA (Sem V)</span></div></div></div>
+
+          <div class="info-card"><div class="info-icon">📌</div><div><div class="info-label">Location</div><div class="info-value">Islamabad, Pakistan → <strong>Bremen, Germany</strong><br><span style="color:var(--muted);font-size:.8rem">Relocating in June 2026</span></div></div></div>
+
+          <div class="info-card"><div class="info-icon">🏅</div><div><div class="info-label">Certifications</div><div class="info-value">Microsoft Azure Fundamentals (AZ-900) · ME&amp;CA SmartCare Operations · IIoT &amp; Industry 4.0 · Data Visualisation · Certified Coding Instructor</div></div></div>
+
+          <div class="info-card"><div class="info-icon">🌐</div><div><div class="info-label">Languages</div><div class="info-value">English — <span style="color:var(--muted);font-size:.8rem">Full Professional</span></div><div class="info-value">German — <span style="color:var(--muted);font-size:.8rem">A2/B1 (Actively Advancing)</span></div></div></div>
+
+          <div class="info-card"><d 
+
