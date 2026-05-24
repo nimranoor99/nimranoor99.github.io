@@ -18,8 +18,10 @@ body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 3.5rem;background:rgba(8,8,8,.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:padding .3s;}
 nav.scrolled{padding:.75rem 3.5rem;}
 .nav-logo{display:flex;align-items:center;gap:.65rem;text-decoration:none;}
-.logo-mark{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),var(--accent2)); ... }
-.logo-mark svg{width:22px;height:22px;}
+.logo-mark{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),var(--accent2)); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--white);}
+.logo-mark svg{width: 24px;
+  height: 24px;
+  display: block;}
 .logo-text{font-family:'Syne',sans-serif;font-weight:800;font-size:0.95rem;color:var(--white);letter-spacing:-.02em;line-height:1.1;}
 .logo-text span{color:var(--accent);}
 .logo-sub{font-size:.62rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;display:block;}
@@ -240,7 +242,7 @@ footer p{font-size:.78rem;color:var(--muted);}
 <!-- NAV -->
 <nav id="navbar">
   <a href="#hero" class="nav-logo">
-<div class="logo-mark">
+<!-- <div class="logo-mark">
       <svg viewBox="0 0 24 24" fill="none">
         <circle cx="12" cy="12" r="3" fill="#080808"/>
         <circle cx="4" cy="6" r="2" fill="#080808"/>
@@ -252,8 +254,22 @@ footer p{font-size:.78rem;color:var(--muted);}
         <line x1="9" y1="13.7" x2="5.5" y2="16.5" stroke="#080808" stroke-width="1.5" stroke-linecap="round"/>
         <line x1="15" y1="13.7" x2="18.5" y2="16.5" stroke="#080808" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
-    </div>
-	
+    </div> -->
+<div class="logo-mark">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="3.5" fill="var(--black)"/>
+    
+    <circle cx="4" cy="6" r="2" fill="currentColor"/>
+    <circle cx="20" cy="6" r="2" fill="currentColor"/>
+    <circle cx="4" cy="18" r="2" fill="currentColor"/>
+    <circle cx="20" cy="18" r="2" fill="currentColor"/>
+    
+    <line x1="9.5" y1="10.1" x2="5.5" y2="7.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="14.5" y1="10.1" x2="18.5" y2="7.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="9.5" y1="13.9" x2="5.5" y2="16.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="14.5" y1="13.9" x2="18.5" y2="16.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+</div>	
     <div>
       <div class="logo-text">Nimra<span>.</span></div>
       <span class="logo-sub">Network Engineer</span>
