@@ -122,12 +122,57 @@ section{padding:6rem 3.5rem;position:relative;}
 .tl-company{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:.15rem;}
 .tl-loc{font-size:.73rem;color:var(--muted);margin-bottom:.3rem;}
 .tl-role{color:var(--accent2);font-size:.85rem;font-weight:500;margin-bottom:1.2rem;}
-.ach{list-style:none;display:flex;flex-direction:column;gap:1rem;}
+/* .ach{list-style:none;display:flex;flex-direction:column;gap:1rem;}
 .ach li{display:flex;gap:.75rem;align-items:flex-start;font-size:.875rem;color:#aaa;line-height:1.65;font-weight:300;}
 .ach li::before{content:'▹';color:var(--accent);font-size:.7rem;flex-shrink:0;margin-top:.35rem;}
 .ach li strong{color:#e0e0e0;font-weight:500;}
-.metric{background:rgba(0,229,160,.1);color:var(--accent);font-size:.7rem;font-weight:600;padding:.1rem .45rem;border-radius:4px;white-space:nowrap;}
+.metric{background:rgba(0,229,160,.1);color:var(--accent);font-size:.7rem;font-weight:600;padding:.1rem .45rem;border-radius:4px;white-space:nowrap;}*/
+/* Fix for the main list container */
+.ach {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
+.ach li {
+  font-size: 0.92rem;
+  color: #aaa;
+  line-height: 1.8;
+  font-weight: 300;
+  text-align: justify; /* Force neat, justified edges */
+  text-justify: inter-word; /* Ensure smooth spacing across the block */
+}
+
+/* Inline typography highlights */
+.ach li strong {
+  color: var(--white);
+  font-weight: 500;
+}
+
+/* Perfect inline-block badge handling to prevent layout gaps */
+.metric-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 229, 160, 0.1);
+  color: var(--accent);
+  border: 1px solid rgba(0, 229, 160, 0.2);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  margin: 0 0.25rem;
+  white-space: nowrap; /* Keeps text inside the badge on a single line */
+  vertical-align: middle; /* Aligns badge perfectly with the font baseline */
+}
+
+/* Variation for revenue/blue badges if needed */
+.metric-inline.alt {
+  background: rgba(0, 194, 224, 0.1);
+  color: var(--accent2);
+  border-color: rgba(0, 194, 224, 0.2);
+}
 /* PROJECTS */
 #projects{background:var(--black);}
 .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
@@ -588,10 +633,10 @@ footer p{font-size:.78rem;color:var(--muted);}
     <div class="timeline">
 
       <div class="timeline-item reveal">
-        <div class="tl-left"><div class="tl-date">Aug 2022 – Present</div><div class="tl-dur">3 yrs 10 months</div><div class="tl-logo">🌐</div></div>
+        <div class="tl-left"><div class="tl-date">Aug 2022 – Present</div><div class="tl-dur">3 yrs 10 months</div><div class="tl-logo"><img src="https://img.icons8.com/?size=100&id=J6KrwEA3pKAF&format=png&color=00e5a0" alt="Transport & Optical" class="skill-icon" style="width: 32px; height: 32px; margin-bottom: .9rem; display: block;"></div></div>
         <div class="tl-right">
           <div class="tl-company">Huawei Technologies</div>
-          <div class="tl-loc">📍 Pakistan · MECA &amp; Africa Region</div>
+          <div class="tl-loc"><img src="https://img.icons8.com/?size=100&id=9Deeqjb8MjFH&format=png&color=00e5a0" alt="Transport & Optical" class="skill-icon" style="width: 32px; height: 32px; margin-bottom: .9rem; display: block;"> Pakistan · MECA &amp; Africa Region</div>
           <div class="tl-role">Network Operations Lead &amp; Infrastructure Engineer</div>
           <ul class="ach">
             <li>Led <strong>61 CEM platform deployments</strong> at <span class="metric">95% accuracy</span> — generated <span class="metric">$2.15M revenue</span> in 2025; earned 27 client appreciation letters from STC Saudi Arabia and Telkom South Africa.</li>
@@ -605,10 +650,10 @@ footer p{font-size:.78rem;color:var(--muted);}
       </div>
 
       <div class="timeline-item reveal d1">
-        <div class="tl-left"><div class="tl-date">Apr – Oct 2022</div><div class="tl-dur">7 months</div><div class="tl-logo">💻</div></div>
+        <div class="tl-left"><div class="tl-date">Apr – Oct 2022</div><div class="tl-dur">7 months</div><div class="tl-logo"><img src="https://images.yourstory.com/cs/images/companies/b35d1ee682dc-logo300x300-1614926604653.png?fm=auto&ar=1%3A1&mode=fill&fill=solid&fill-color=fff&format=auto&w=1920&q=85" alt="Transport & Optical" class="skill-icon" style="width: 32px; height: 32px; margin-bottom: .9rem; display: block;"></div></div>
         <div class="tl-right">
           <div class="tl-company">Codingal</div>
-          <div class="tl-loc">📍 Bengaluru (Remote)</div>
+          <div class="tl-loc"><img src="https://img.icons8.com/?size=100&id=9Deeqjb8MjFH&format=png&color=00e5a0" alt="Transport & Optical" class="skill-icon" style="width: 32px; height: 32px; margin-bottom: .9rem; display: block;"> Bengaluru (Remote)</div>
           <div class="tl-role">Certified Coding Instructor</div>
           <ul class="ach">
             <li>Delivered HTML and Python lessons to <span class="metric">121 students</span>, guiding each to build responsive web apps and logic-based applications from scratch.</li>
@@ -619,10 +664,10 @@ footer p{font-size:.78rem;color:var(--muted);}
       </div>
 
       <div class="timeline-item reveal d2">
-        <div class="tl-left"><div class="tl-date">Oct 2021 – Mar 2022</div><div class="tl-dur">6 months</div><div class="tl-logo">🛡️</div></div>
+        <div class="tl-left"><div class="tl-date">Oct 2021 – Mar 2022</div><div class="tl-dur">6 months</div><div class="tl-logo"><img src="" alt="Transport & Optical" class="skill-icon" style="width: 32px; height: 32px; margin-bottom: .9rem; display: block;"></div></div>
         <div class="tl-right">
           <div class="tl-company">People Perfect</div>
-          <div class="tl-loc">📍 Islamabad, Pakistan</div>
+          <div class="tl-loc"><img src="https://img.icons8.com/?size=100&id=9Deeqjb8MjFH&format=png&color=00e5a0" alt="Transport & Optical" class="skill-icon" style="width: 32px; height: 32px; margin-bottom: .9rem; display: block;"> Islamabad, Pakistan</div>
           <div class="tl-role">EHS Intern</div>
           <ul class="ach">
             <li>Conducted <strong>500+ site safety audits</strong> via iResource and ESDP — achieved <span class="metric">100% First Time Pass Rate</span> for all site operations.</li>
@@ -632,10 +677,10 @@ footer p{font-size:.78rem;color:var(--muted);}
       </div>
 
       <div class="timeline-item reveal">
-        <div class="tl-left"><div class="tl-date">Sept 2021</div><div class="tl-dur">1 month</div><div class="tl-logo">🤖</div></div>
+        <div class="tl-left"><div class="tl-date">Sept 2021</div><div class="tl-dur">1 month</div><div class="tl-logo"><img src="dc96d602ac69493b950bdb3efe66d764.png" alt="Transport & Optical" class="skill-icon" style="width: 32px; height: 32px; margin-bottom: .9rem; display: block;"></div></div>
         <div class="tl-right">
           <div class="tl-company">Mindstorm Engineering</div>
-          <div class="tl-loc">📍 Karachi, Pakistan</div>
+          <div class="tl-loc"><img src="https://img.icons8.com/?size=100&id=9Deeqjb8MjFH&format=png&color=00e5a0" alt="Transport & Optical" class="skill-icon" style="width: 32px; height: 32px; margin-bottom: .9rem; display: block;"> Karachi, Pakistan</div>
           <div class="tl-role">IIoT – Industry 4.0 Intern</div>
           <ul class="ach">
             <li>Programmed <strong>Siemens PLCs with C++</strong> and integrated with SCADA for remote industrial control and real-time predictive analytics.</li>
@@ -645,10 +690,10 @@ footer p{font-size:.78rem;color:var(--muted);}
       </div>
 
       <div class="timeline-item reveal d1">
-        <div class="tl-left"><div class="tl-date">Jul – Aug 2019</div><div class="tl-dur">2 months</div><div class="tl-logo">⚡</div></div>
+        <div class="tl-left"><div class="tl-date">Jul – Aug 2019</div><div class="tl-dur">2 months</div><div class="tl-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Ksblogo.png" alt="Transport & Optical" class="skill-icon" style="width: 32px; height: 32px; margin-bottom: .9rem; display: block;"></div></div>
         <div class="tl-right">
           <div class="tl-company">KSB Company</div>
-          <div class="tl-loc">📍 Hassanabdal, Pakistan</div>
+          <div class="tl-loc"><img src="https://img.icons8.com/?size=100&id=9Deeqjb8MjFH&format=png&color=00e5a0" alt="Transport & Optical" class="skill-icon" style="width: 32px; height: 32px; margin-bottom: .9rem; display: block;"> Hassanabdal, Pakistan</div>
           <div class="tl-role">Power Field Intern</div>
           <ul class="ach">
             <li>Automated testing/reporting workflows using <strong>Python and Excel dashboards</strong> for energy analysis and commissioning checklists.</li>
