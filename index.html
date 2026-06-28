@@ -485,11 +485,11 @@ footer p{font-size:.78rem;color:var(--muted);}
     	</div>
   		</div>
 
-  		<div class="info-card">
+  		<!--<div class="info-card">
    			 <div class="info-icon" style="background: transparent;">
      		 <img src="https://img.icons8.com/wired/64/00e5a0/briefcase.png" alt="Current Role" style="width: 24px; height: 24px;">
     	</div>
-    	 <!--<div>
+    	 <div>
       		<div class="info-label">Current Role</div>
       		<div class="info-value">Network Operations Lead<br><span style="color:var(--muted);font-size:.8rem">Huawei Technologies · Aug 2022 – May 2026 · Huawei Insource Employee</span></div>
     	</div> -->
@@ -904,7 +904,7 @@ footer p{font-size:.78rem;color:var(--muted);}
           <div class="aw-item"><div class="aw-emoji"><img src="https://img.icons8.com/?size=40&id=3FpCUQJHW2tt&format=png&color=00e5a0" alt="C3"></div><div><div class="aw-title">Introduction to IIoT &amp; Industry 4.0</div><div class="aw-desc">Industrial Internet of Things · Automation &amp; SCADA</div></div></div>
           <div class="aw-item"><div class="aw-emoji"><img src="https://img.icons8.com/?size=40&id=qaO1BwPvsGoQ&format=png&color=00e5a0" alt="C4"></div><div><div class="aw-title">Data Visualisation: Empowering Business with Insights</div><div class="aw-desc">Business analytics and effective visual communication</div></div></div>
           <div class="aw-item"><div class="aw-emoji"><img src="https://img.icons8.com/?size=40&id=jXaAHHXigHC0&format=png&color=00e5a0" alt="C5"></div><div><div class="aw-title">Certified Coding Instructor</div><div class="aw-desc">HTML, Python · Codingal Instructor Certification</div></div></div>
-		<div class="aw-item"><div class="aw-emoji"><img src="https://img.icons8.com/?size=100&id=M8g14mEIVipf&format=png&color=00e5a0" alt="C5"></div><div><div class="aw-title">Data Analysis Certifications</div><div class="aw-desc">Google Data Analyst · TATA Data Visualization · Huawei GTS Data Analyst</div></div></div>
+		<div class="aw-item"><div class="aw-emoji"><img src="https://img.icons8.com/?size=40&id=M8g14mEIVipf&format=png&color=00e5a0" alt="C5"></div><div><div class="aw-title">Data Analysis Certifications</div><div class="aw-desc">Google Data Analyst · TATA Data Visualization · Huawei GTS Data Analyst</div></div></div>
 		</div>
       </div>
     </div>
@@ -1105,36 +1105,38 @@ stats.forEach(stat => {
 </script>
 
 <script>
-  const stats = document.querySelectorAll('.stat-num');
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".stat-num");
   
-  const animateStats = (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const target = entry.target;
-        const countTo = parseFloat(target.getAttribute('data-target'));
-        const duration = 2000; // Duration in milliseconds
-        const frameRate = 30; 
-        const totalFrames = duration / frameRate;
-        const increment = countTo / totalFrames;
-        
-        let current = 0;
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= countTo) {
-            target.textContent = countTo % 1 === 0 ? Math.floor(countTo) : countTo.toFixed(2);
-            clearInterval(timer);
-          } else {
-            target.textContent = countTo % 1 === 0 ? Math.floor(current) : current.toFixed(2);
-          }
-        }, frameRate);
-        
-        observer.unobserve(target);
-      }
-    });
+  const animateCounter = (counter) => {
+    const target = +counter.getAttribute("data-target");
+    const count = +counter.innerText;
+    
+    // Determine increment speed based on target size
+    const increment = target / 100; 
+
+    if (count < target) {
+      counter.innerText = (count + increment).toLocaleString(undefined, {
+        minimumFractionDigits: target % 1 !== 0 ? 2 : 0,
+        maximumFractionDigits: target % 1 !== 0 ? 2 : 0
+      });
+      setTimeout(() => animateCounter(counter), 20);
+    } else {
+      counter.innerText = target;
+    }
   };
 
-  const observer = new IntersectionObserver(animateStats, { threshold: 0.5 });
-  stats.forEach(stat => observer.observe(stat));
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target); // Run only once
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => observer.observe(counter));
+});
 </script>
 	
 </body>
